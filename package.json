@@ -1,0 +1,12 @@
+{
+    "name": "chanyeong",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/xian0310567/Hasa.git",
+    "author": "xian0310567 <xian0310567@naver.com>",
+    "license": "MIT",
+    "scripts": {
+      "server": "cd ./server && npm run start:dev",
+      "client": "cd ./client && npm start"
+    }
+  }
