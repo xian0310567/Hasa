@@ -6,7 +6,7 @@
     "author": "xian0310567 <xian0310567@naver.com>",
     "license": "MIT",
     "scripts": {
-      "server": "cd ./server && npm run start:dev",
-      "client": "cd ./client && npm start"
+        "server": "cd ./server && npm run start:dev",
+        "client": "cd ./client && npm start"
     }
-  }
+}
