@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-import Layout from './components/layout/layout';
+// import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <Layout>
-    <App />
-  </Layout>,
-    document.getElementById('root')
+    <App />,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
