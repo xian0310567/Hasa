@@ -11,10 +11,11 @@ export class UserController {
         private readonly userService: UserService
     ) {}
 
-    // @Get()
-    // async getAll(): Promise<UserModel[]> {
-    //     return this.prismaService.user.findMany();
-    // }
+    // 모든 유저 정보 조회
+    @Get()
+    async getAll(): Promise<UserModel[]> {
+        return this.userService.getAll();
+    }
     
     // ID로 정보 조회
     @Get(':id')
