@@ -1,8 +1,12 @@
+import Header from 'components/layout/header';
 
-const home = () => {
+const Home = () => {
     return (
-        <h1>hi</h1>
+        <>
+            <Header />
+            <h1>hi</h1>
+        </>
     ); 
 }
 
-export default home;
+export default Home;
