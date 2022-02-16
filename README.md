@@ -2,7 +2,7 @@
 
 ## Skill
 ### Front-end
-- ReactJS
+- Svelte
 - TypeScript
 
 ### Back-end
