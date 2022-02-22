@@ -14,7 +14,8 @@
 
 <div id="invest" class="ib_wrap">
     <h3 class="subTitle">{$userName} 님의 투자</h3>
-    <div id="propBox">
+    <!-- redirect svelte에서 지원하는게 있을텐데 아직 찾지 못함 -->
+    <div id="propBox" on:click={()=>document.location.href='#/deposit/'}>
         <span>예치금</span>
         <span>{$propPrice}원 <img src="images/right-arrow.png" alt="예치금 바로가기" width = "10px"></span>
     </div>
