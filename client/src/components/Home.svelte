@@ -6,7 +6,10 @@
 <header>
     <img id="logo" src="images/logo-kasa.svg" alt="logoForKasa" />
     <div id="information">
-        <img src="images/alert.png" alt="" width="25px" />
+        <img
+            src="images/alert.png" alt= "" width="25px"
+            on:click={() => (document.location.href = "#/alarm/")}
+        />
         <img src="images/user.png" alt="" width="23px" />
     </div>
 </header>
@@ -30,7 +33,7 @@
 <div class="ib_wrap">
     <h3>거래 가능한 빌딩</h3>
     <div class="buildi">
-        <h4>역삼 한국기술센터</h4>
+        <h4>대림동 하이원</h4>
         <span id="bd_price">5,290</span>
         <div class="triangle" />
         <span id="bd_vola">40 (+0.76%)</span>
