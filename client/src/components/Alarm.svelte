@@ -14,10 +14,12 @@
 
 <style>
     header {
+        text-align: center;
         height: 30px;
         margin-bottom: 10px;
     }
     #backArrow {
+        float: left;
         margin : 0px;
         margin-left : 7px;
         margin-top: 10px;
@@ -42,8 +44,8 @@
         display: inline-block;
         font-size: 20px;
         margin: 0;
-        width: 48px;
-        padding-left: 142px;
+        margin-top: 7px;
+        margin-left : -30px;
 
     }
 
