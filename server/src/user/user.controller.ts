@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Param } from '@nestjs/common';
+import { Controller, Get, Post, Param, Res } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { UserService } from './user.service';
-import { user as UserModel } from '@prisma/client';
+import { account as accountModel, user as UserModel } from '@prisma/client';
 
 
 @Controller('user')
@@ -17,9 +17,16 @@ export class UserController {
         return this.userService.getAll();
     }
     
-    // ID로 정보 조회
+    //ID로 정보 조회
     @Get(':id')
     async getAuth(@Param('id') id: string): Promise<UserModel> {
         return this.userService.getUser({ id: String(id) })
     }
+
+    // ID로 회원 계좌 정보 조회
+    @Get(':id/account')
+    async getAccount(@Param('id') id: string): Promise<accountModel> {
+        return this.userService.getAccount({ userId: String(id) })
+    }
+
 }
