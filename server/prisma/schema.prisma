@@ -15,4 +15,14 @@ model user {
   phone   String?
   address String?
   email   String  @unique(map: "User_email_key")
+  account  account[]
+}
+
+model account {
+  no              Int     @id @default(autoincrement())
+  userId          String  @unique
+  user            user    @relation(fields: [userId], references: [id])
+  bankCode        String
+  accountNumber   Int     @unique
+  investCode      String
 }
