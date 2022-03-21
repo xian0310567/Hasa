@@ -24,5 +24,6 @@ model account {
   user            user    @relation(fields: [userId], references: [id])
   bankCode        String
   accountNumber   Int     @unique
+  propPrice       Int     @default(0)
   investCode      String
 }

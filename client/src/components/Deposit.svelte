@@ -51,6 +51,11 @@
         width : 47%;
         height : 40px;
         margin : 0 2px;
+        border : none;
+        background : #ededed;
+        color : #2020d0;
+        font-weight : bold;
+        font-size : 14px;
     }
     #depoHistory {
         padding : 10px;
