@@ -24,7 +24,7 @@ export class UserController {
     }
 
     // ID로 회원 계좌 정보 조회
-    @Get(':id/account')
+    @Get('/account/:id')
     async getAccount(@Param('id') id: string): Promise<accountModel> {
         return this.userService.getAccount({ userId: String(id) })
     }
