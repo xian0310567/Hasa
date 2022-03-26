@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Param, Res } from '@nestjs/common';
+import { Controller, Get, Post, Param, Res, Put } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { UserService } from './user.service';
-import { account as accountModel, user as UserModel } from '@prisma/client';
+import { account as AccountModel, user as UserModel } from '@prisma/client';
 
 
 @Controller('user')
@@ -25,8 +25,41 @@ export class UserController {
 
     // ID로 회원 계좌 정보 조회
     @Get('/account/:id')
-    async getAccount(@Param('id') id: string): Promise<accountModel> {
+    async getAccount(@Param('id') id: string): Promise<AccountModel> {
         return this.userService.getAccount({ userId: String(id) })
+    }
+
+    
+    // 계좌 정보
+    
+    // 해당 정보로 조회된 계좌 +10000
+    @Put('/account/:id/deposit')
+    async depositPrice(
+        @Param('id') id: string
+    ): Promise<AccountModel> {
+        return this.userService.postPropPrice({
+            where: {userId: String(id)},
+            data: {
+                propPrice: (await this.userService.getAccount({
+                    userId: String(id)
+                })).propPrice + 10000
+            }
+        })   
+    }
+
+    // 해당 정보로 조회된 계좌 -10000
+    @Put('/account/:id/withdrawal')
+    async withdrawalPrice(
+        @Param('id') id: string
+    ): Promise<AccountModel> {
+        return this.userService.postPropPrice({
+            where: {userId: String(id)},
+            data: {
+                propPrice: (await this.userService.getAccount({
+                    userId: String(id)
+                })).propPrice - 10000
+            }
+        })   
     }
 
 }
