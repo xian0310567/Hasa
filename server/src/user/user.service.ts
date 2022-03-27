@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { user, account, Prisma } from '@prisma/client';
+import { PrismaClientValidationError } from '@prisma/client/runtime';
 
 @Injectable()
 export class UserService {
@@ -18,6 +19,11 @@ export class UserService {
         return this.prismaService.user.findMany();
     }
 
+    async createUser(data: Prisma.userCreateInput): Promise<user | null> {
+        return this.prismaService.user.create({
+            data
+        })
+    } 
 
     // 계좌 정보
     async getAccount(data: Prisma.accountWhereUniqueInput): Promise<account | null> {
