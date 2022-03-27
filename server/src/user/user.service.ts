@@ -32,8 +32,15 @@ export class UserService {
         })
     }
 
-    
-    async postPropPrice(params: {
+    // 계좌 정보 생성
+    async createAccount(data: Prisma.accountCreateInput): Promise<account | null> {
+        return this.prismaService.account.create({
+            data
+        })
+    }
+
+    // 계좌 잔액 추가
+    async putPropPrice(params: {
         where: Prisma.accountWhereUniqueInput,
         data: Prisma.accountUpdateInput
     }): Promise<account | null> {

@@ -40,25 +40,40 @@ export class UserController {
             address: string,
             email: string
         }): Promise<UserModel> {
-        return this.userService.createUser(userData)
+            return this.userService.createUser(userData)
     }
-
     
     // 계좌 정보
+
+    // 계좌 생성 및 연동
+    @Post('/account/:id')
+    async createAccount(
+        @Body() accountData: {
+            user: {},
+            bankCode: string,
+            accountNumber: number,
+            propPrice: 0,
+            investCode: string
+        }
+    ): Promise<AccountModel> {
+        return this.userService.createAccount(
+            accountData
+        )
+    }
     
     // 해당 정보로 조회된 계좌 +10000
     @Put('/account/:id/deposit')
     async depositPrice(
         @Param('id') id: string
     ): Promise<AccountModel> {
-        return this.userService.postPropPrice({
+        return this.userService.putPropPrice({
             where: {userId: String(id)},
             data: {
                 propPrice: (await this.userService.getAccount({
                     userId: String(id)
                 })).propPrice + 10000
             }
-        })   
+        })
     }
 
     // 해당 정보로 조회된 계좌 -10000
@@ -66,7 +81,7 @@ export class UserController {
     async withdrawalPrice(
         @Param('id') id: string
     ): Promise<AccountModel> {
-        return this.userService.postPropPrice({
+        return this.userService.putPropPrice({
             where: {userId: String(id)},
             data: {
                 propPrice: (await this.userService.getAccount({
