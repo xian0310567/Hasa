@@ -30,7 +30,7 @@
     </div>
 </div>
 
-<div class="ib_wrap">
+<div class="ib_wrap" on:click={() => (document.location.href = "#/build/")}>
     <h3>거래 가능한 빌딩</h3>
     <div class="buildi">
         <h4>대림동 하이원</h4>
