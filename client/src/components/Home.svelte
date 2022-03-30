@@ -1,5 +1,13 @@
 <script>
     import { userName, propPrice } from "../store";
+    import axios from 'axios';
+
+    // async function getSomthing() {
+    //     const res = await axios.get('http://localhost:8000/user/xian0310567/account');
+    //     console.log(res.data.userId)
+    // }
+
+    // getSomthing();
 </script>
 
 <!-- body -->

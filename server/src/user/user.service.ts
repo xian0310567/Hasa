@@ -17,10 +17,24 @@ export class UserService {
     async getAll(): Promise<user[] | null>{
         return this.prismaService.user.findMany();
     }
-    
+
+
+    // 계좌 정보
     async getAccount(data: Prisma.accountWhereUniqueInput): Promise<account | null> {
         return this.prismaService.account.findUnique({
             where: data
         })
-    } 
+    }
+
+    
+    async postPropPrice(params: {
+        where: Prisma.accountWhereUniqueInput,
+        data: Prisma.accountUpdateInput
+    }): Promise<account | null> {
+        const { where, data } = params;
+        return this.prismaService.account.update({
+            where,
+            data
+        })
+    }
 }
