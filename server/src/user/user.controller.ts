@@ -23,11 +23,6 @@ export class UserController {
         return this.userService.getUser({ id: String(id) })
     }
 
-    // ID로 회원 계좌 정보 조회
-    @Get('/account/:id')
-    async getAccount(@Param('id') id: string): Promise<AccountModel> {
-        return this.userService.getAccount({ userId: String(id) })
-    }
 
     // 유저 생성
     @Post()
@@ -44,6 +39,12 @@ export class UserController {
     }
     
     // 계좌 정보
+
+    // ID로 회원 계좌 정보 조회
+    @Get('/account/id')
+    async getAccount(@Param('id') id: string): Promise<AccountModel> {
+        return this.userService.getAccount({ userId: String(id) })
+    }
 
     // 계좌 생성 및 연동
     @Post('/account/:id')
