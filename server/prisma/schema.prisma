@@ -15,7 +15,7 @@ model user {
   phone   String?
   address String?
   email   String  @unique(map: "User_email_key")
-  account  account[]
+  account  account?
 }
 
 model account {
